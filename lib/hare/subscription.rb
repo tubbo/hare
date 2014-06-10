@@ -27,7 +27,7 @@ module Hare
         create_queue(queue)
         create_binding(bind)
         @queue.subscribe do |delivery_info, properties, body|
-          yield format_data(body)
+          yield format_data(body), delivery_info, properties
         end
       end
 
